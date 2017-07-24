@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import CocktailsContainer from './components/CocktailsContainer'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class App extends Component {
 
@@ -22,11 +23,17 @@ class App extends Component {
 
   render() {
     return (
+      <Router>
       <div>
-        <CocktailsContainer
-          cocktails={this.state.cocktails}
-        />
+        <Route>
+          <Route path="/" render={() =>
+            <CocktailsContainer
+            cocktails={this.state.cocktails}
+            />}/>
+          <Route path="/:id" render={}
+        </Route>
       </div>
+      </Router>
     );
   }
 }
