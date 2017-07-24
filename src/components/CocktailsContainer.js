@@ -16,13 +16,6 @@ const CocktailsContainer = (props) => {
             </ul>
           </Grid.Column>
         </Grid.Row>
-        <Grid.Row>
-          <Grid.Column floated='right' width={5}>
-            <div>
-              Lorum ipsum text
-            </div>
-          </Grid.Column>
-        </Grid.Row>
       </Grid>
     </div>
   )
