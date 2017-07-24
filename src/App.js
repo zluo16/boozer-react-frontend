@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import CocktailsContainer from './components/CocktailsContainer'
 
 class App extends Component {
 
@@ -14,16 +15,17 @@ class App extends Component {
       .then(res => res.json())
       .then(cocktails => {
         this.setState({
-          cocktails: cocktails
+          cocktails
         })
       })
   }
 
   render() {
-    debugger
     return (
       <div>
-
+        <CocktailsContainer
+          cocktails={this.state.cocktails}
+        />
       </div>
     );
   }
