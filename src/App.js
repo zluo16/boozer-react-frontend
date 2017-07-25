@@ -6,33 +6,12 @@ import Cocktail from './components/Cocktail'
 
 class App extends Component {
 
-  state = {
-    cocktails: [],
-    currentCocktail: {}
-  }
-
-  componentDidMount() {
-    const url = 'http://localhost:3000/api/v1/cocktails'
-
-    fetch(url)
-      .then(res => res.json())
-      .then(cocktails => {
-        this.setState({
-          cocktails,
-          currentCocktail: cocktails[0]
-        })
-      })
-  }
-
   render() {
     return (
       <Router>
         <div>
-          <Route path="/" render={() =>
-            <CocktailsContainer
-            cocktails={this.state.cocktails}
-            />}/>
-            <Route path='/cocktails/:id' render={() => <Cocktail cocktail={this.state.currentCocktail} />} />
+          <Route exact path="/cocktails" component={ CocktailsContainer } />
+          <Route path='/cocktails/:id' component={ Cocktail } />
         </div>
       </Router>
     );
