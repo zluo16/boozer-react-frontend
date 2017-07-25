@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import CocktailsList from './CocktailsList'
-import { Segment } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 import { Route } from 'react-router-dom'
+import Cocktail from './Cocktail'
 
 class CocktailsContainer extends Component {
 
@@ -30,11 +31,20 @@ class CocktailsContainer extends Component {
 
   render(){
     return(
-      <Segment>
-        <Route path='/cocktails' render={()=>(
-          <CocktailsList cocktails={this.state.cocktails} changeCocktail={this.changeSelectedCocktail.bind(this)}/>
-        )}/>
-      </Segment>
+      <Grid divided='vertically'>
+        <Grid.Row columns={2}>
+          <Grid.Column>
+            <Route  path='/cocktails' render={()=>(
+              <CocktailsList cocktails={this.state.cocktails} changeCocktail={this.changeSelectedCocktail.bind(this)}/>
+            )}/>
+          </Grid.Column>
+          <Grid.Column>
+            <Route path='/cocktails/:id' render={()=>(
+              <Cocktail cocktail={this.state.currentCocktail} />
+            )}/>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     )
   }
 }

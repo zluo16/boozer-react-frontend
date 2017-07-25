@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 
 class CocktailsList extends Component {
   renderList(){
-    console.log(this.props);
+    console.log("rendering cocktails",this.props);
     return (this.props.cocktails.map( c => (
       <Feed.Event key={c.id}>
         <Feed.Label>
